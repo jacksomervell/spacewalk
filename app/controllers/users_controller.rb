@@ -1,6 +1,12 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all.order('created_at DESC')
+    # @users = User.all.order('created_at DESC')
+     @users = User.all
+    if params[:search]
+      @users = User.search(params[:search]).order("created_at DESC")
+    else
+      @users = User.all.order('created_at DESC')
+    end
   end
 
   def new
@@ -8,11 +14,11 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = user.new(user_params)
+    @user = User.new(user_params)
     
-    if user.save
+    if @user.save
       flash[:notice] = 'user created successfully!'
-      redirect_to user
+      redirect_to @user
     else
       flash.now[:error] = "Error: #{user.errors.full_messages}"
       render :new

@@ -1,1 +1,15 @@
 <h1> Howdy! </h1>
+
+<%= form_tag(users_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search Users" %>
+  <%= submit_tag "Search" %>
+
+<% end %>
+
+
+
+<% if @users.present? %>
+  <%= render "user" %>
+  <% else %>
+  <p>There are no users containing the term(s) <%= params[:search] %>.</p>
+<% end %>
