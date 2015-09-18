@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   def update
     user = User.find(params[:id])
 
-    if User.update(user_params)
+    if user.update(user_params)
       redirect_to user
     else
       render :edit
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    user = User.find(params[:id]).destroy
+    user = user.find(params[:id]).destroy
 
     redirect_to root_path
   end
