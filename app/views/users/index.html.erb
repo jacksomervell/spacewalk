@@ -1,11 +1,12 @@
-<h1> Howdy! </h1>
+<h1> Existing runner </h1>
 
 <%= form_tag(users_path, :method => "get", id: "search-form") do %>
-  <%= text_field_tag :search, params[:search], placeholder: "Search Users" %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search runners" %>
   <%= submit_tag "Search" %>
 
 <% end %>
 
+<h2>Select your profile from below. <%=link_to "Not here?", new_user_path %> </h2>
 
 
 <% if @users.present? %>
