@@ -27,10 +27,18 @@
   height: 600px;
   position: absolute;
   left: 220px;
+
 }
 
+#thelineitself {
+  color: #f00;
+  background-color: #f00;
+  height: 5px;
+  transform: rotate(152deg) translateY(-210px) translateX(170px);
+  width: 900px;
+}
 
 body {
   background-image: url( http://cdn3.howtogeek.com/wp-content/uploads/2011/04/starryskieswallpapercollection14.jpg);
-  color: white;
+  color: white;s
 }
