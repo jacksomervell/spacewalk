@@ -6,16 +6,25 @@
   <% sum = 0 %>
   <% @user.sessions.each do |session| %>
   <%  sum = sum + session.distance.to_i %>
-
   <% end %>
-  <%= sum %>
+
+  <p><%= sum %>km<p>
+
+<p> Favourite place to run: </p>
+<% arr = @user.sessions.pluck(:location) %>
+<% freq = arr.inject(Hash.new(0)) { |h,v| h[v] += 1; h } %>
+<%= arr.max_by { |v| freq[v] } %>
+
+
+
+
 
 
 <h2> Session history </h2>
 
 <% @user.sessions.each do |session|%>
-  <h2><%= session.activity %></h2>
-  <h2><%= session.distance %></h2>
-  <h2><%= session.location %></h2>
+  <p><%= session.activity %></p>
+  <p><%= session.distance %></p>
+  <p><%= session.location %></p>
   <br>
 <% end %>
