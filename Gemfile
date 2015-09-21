@@ -42,6 +42,8 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
+  gem 'ruby-progressbar', '~> 1.7.5'
+  gem 'gon' 
 
 end
 

@@ -1,1 +1,9 @@
 <h1> Mooooon </h1>
+
+  <% sum = 0 %>
+  <% @user.sessions.each do |session| %>
+  <%  sum = sum + session.distance.to_i %>
+  <% end %>
+  <%= sum %> / 384,400 km
+
+  <h2> Only <%= 384400 - sum%>km to go! </h2>
