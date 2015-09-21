@@ -11,12 +11,20 @@
   <p><%= sum %>km<p>
 
 <p> Favourite place to run: </p>
+
 <% arr = @user.sessions.pluck(:location) %>
 <% freq = arr.inject(Hash.new(0)) { |h,v| h[v] += 1; h } %>
 <%= arr.max_by { |v| freq[v] } %>
 
+<p> Average distance per session <p>
+
+<% all_distance = @user.sessions.pluck(:distance) %>
+<% all_distance.map! { |s| s.to_i} %>
+<% all_distance %>
+<%= all_distance.inject{ |sum, el| sum + el }.to_f / all_distance.size %>km
 
 
+<p> Moon progress </p>
 
 
 
