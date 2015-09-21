@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'users/:id/moon', to: 'users#moon'
 
   resources :users do
     resources :sessions
