@@ -53,6 +53,13 @@ class UsersController < ApplicationController
 
   def moon
     @user = User.find(params[:id])
+
+    @sum = 0
+    @user.sessions.each do |session|
+    @sum = @sum + session.distance.to_i
+    end 
+
+    gon.sum = @sum
   end 
 
   private
