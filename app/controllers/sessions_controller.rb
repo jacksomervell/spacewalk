@@ -30,15 +30,15 @@ class SessionsController < ApplicationController
   end
 
   def edit
-    user = User.find(params[:post_id])
+    user = User.find(params[:user_id])
     @session = user.sessions.find(params[:id])
   end
 
   def update
-    user = User.find(params[:post_id])
+    user = User.find(params[:user_id])
     @session = user.sessions.find(params[:id])
 
-     if @session.update(user_params)
+     if @session.update_attributes(session_params)
       redirect_to user
     else
       render :edit
@@ -46,9 +46,10 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    user = User.find(params[:post_id])
+    user = User.find(params[:user_id])
     @session = user.sessions.find(params[:id])
     @session.destroy
+    redirect_to user
   end
 
   private

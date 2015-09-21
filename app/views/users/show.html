@@ -24,7 +24,6 @@ Joined: <%= time_ago_in_words(@user.created_at) %> ago
 <% arr = @user.sessions.pluck(:location) %>
 <% freq = arr.inject(Hash.new(0)) { |h,v| h[v] += 1; h } %>
 <p> <%= arr.max_by { |v| freq[v] } %> </p>
-<%= arr.group_by(&:to_s).values.max_by(&:size).try(:first) %>
 
 <p> Average distance run per session: <p>
 
@@ -44,5 +43,7 @@ Joined: <%= time_ago_in_words(@user.created_at) %> ago
   <p><%= session.activity %></p>
   <p><%= session.distance %></p>
   <p><%= session.location %></p>
+  <%= link_to 'Edit', edit_user_session_path(session.user, session)%>
+  <%= link_to 'Delete', [session.user, session], method: :delete, data: { confirm: "Are you sure?" } %>
   <br>
 <% end %>
