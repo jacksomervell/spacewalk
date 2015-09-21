@@ -1,0 +1,21 @@
+<h1><%= @user.name %></h1>
+
+<h2> At a glance </h2>
+
+<p> Total distance run: <p>
+  <% sum = 0 %>
+  <% @user.sessions.each do |session| %>
+  <%  sum = sum + session.distance.to_i %>
+
+  <% end %>
+  <%= sum %>
+
+
+<h2> Session history </h2>
+
+<% @user.sessions.each do |session|%>
+  <h2><%= session.activity %></h2>
+  <h2><%= session.distance %></h2>
+  <h2><%= session.location %></h2>
+  <br>
+<% end %>
