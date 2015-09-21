@@ -16,7 +16,7 @@
 <% freq = arr.inject(Hash.new(0)) { |h,v| h[v] += 1; h } %>
 <%= arr.max_by { |v| freq[v] } %>
 
-<p> Average distance per session <p>
+<p> Average distance run per session: <p>
 
 <% all_distance = @user.sessions.pluck(:distance) %>
 <% all_distance.map! { |s| s.to_i} %>

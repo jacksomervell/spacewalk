@@ -7,3 +7,42 @@ Joined: <%= time_ago_in_words(@user.created_at) %> ago
 
 <%= link_to 'Edit', edit_user_path(@user) %>
 <%= link_to 'Delete', @user, method: :delete, data: { confirm: "Are you sure?" } %>
+<%= link_to 'Log a new run', new_user_session_path(@user) %>
+
+<h2> At a glance </h2>
+
+<p> Total distance run: <p>
+  <% sum = 0 %>
+  <% @user.sessions.each do |session| %>
+  <%  sum = sum + session.distance.to_i %>
+  <% end %>
+
+  <p><%= sum %>km<p>
+
+<p> Favourite place to run: </p>
+
+<% arr = @user.sessions.pluck(:location) %>
+<% freq = arr.inject(Hash.new(0)) { |h,v| h[v] += 1; h } %>
+<p> <%= arr.max_by { |v| freq[v] } %> </p>
+<%= arr.group_by(&:to_s).values.max_by(&:size).try(:first) %>
+
+<p> Average distance run per session: <p>
+
+<% all_distance = @user.sessions.pluck(:distance) %>
+<% all_distance.map! { |s| s.to_i} %>
+<% all_distance %>
+<%= all_distance.inject{ |sum, el| sum + el }.to_f / all_distance.size %>km
+
+
+<p> Moon progress </p>
+
+
+
+<h2> Session history </h2>
+
+<% @user.sessions.each do |session|%>
+  <p><%= session.activity %></p>
+  <p><%= session.distance %></p>
+  <p><%= session.location %></p>
+  <br>
+<% end %>

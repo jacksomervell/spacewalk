@@ -1,21 +1,23 @@
 class SessionsController < ApplicationController
   def index
     @sessions = Session.all
-    @user = User.find(params[:user_id])
-   
+    @user= User.all
   
   end
 
   def new
-    @session = Session.new
+    user = User.find(params[:user_id])
+    @session = user.sessions.build
   end
 
   def create
-    @session = Session.new(user_params)
-    
+    user = User.find(params[:user_id])
+    @session = user.sessions.new(session_params)
+    @user = User.find(params[:user_id])
+
     if @session.save
       flash[:notice] = 'You added a new session'
-      redirect_to @session
+      redirect_to @user
     else
       flash.now[:error] = "Error: #{session.errors.full_messages}"
       render :new
@@ -23,23 +25,37 @@ class SessionsController < ApplicationController
   end
 
   def show
-    @session = Session.find(params[:id])
+    user = User.find(params[:post_id])
+    @session = user.sessions.find(params[:id])
   end
 
   def edit
-    
+    user = User.find(params[:post_id])
+    @session = user.sessions.find(params[:id])
   end
 
   def update
-   
+    user = User.find(params[:post_id])
+    @session = user.sessions.find(params[:id])
+
+     if @session.update(user_params)
+      redirect_to user
+    else
+      render :edit
+    end
   end
 
   def destroy
-   
+    user = User.find(params[:post_id])
+    @session = user.sessions.find(params[:id])
+    @session.destroy
   end
 
   private
-  def user_params
-    params.require(:user).permit(:name, :age, :location)
+
+  def session_params
+    params.require(:session).permit(:activity, :location, :distance)
   end
+
+ 
 end
