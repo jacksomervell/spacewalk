@@ -1,3 +1,5 @@
+<h1> <%=link_to 'moonwalk', welcomes_path %> </h1>
+
 <% @users.each do |user| %>
   <div>
     <h1><%= link_to user.name, user %></h1>
