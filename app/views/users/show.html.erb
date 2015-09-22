@@ -47,15 +47,17 @@
 
 <div id= "session_container">
 
-    <h2 id="glance_title" href:"#"> Session history </h2><div class="arrow-down"></div>
+    <h2 id="session_title" href:"#"> Session history </h2><div class="arrow-down"></div>
 
-    <% @user.sessions.each do |session|%>
-      <p><%= session.activity %></p>
-      <p><%= session.distance %></p>
-      <p><%= session.location %></p>
-      <%= link_to 'Edit', edit_user_session_path(session.user, session)%>
-      <%= link_to 'Delete', [session.user, session], method: :delete, data: { confirm: "Are you sure?" } %>
-      <br>
-    <% end %>
+    <div id= "session_info">
+      <% @user.sessions.each do |session|%>
+        <p><%= session.activity %></p>
+        <p><%= session.distance %></p>
+        <p><%= session.location %></p>
+        <%= link_to 'Edit', edit_user_session_path(session.user, session)%>
+        <%= link_to 'Delete', [session.user, session], method: :delete, data: { confirm: "Are you sure?" } %>
+        <br>
+      <% end %>
+    </div>
 
 </div>

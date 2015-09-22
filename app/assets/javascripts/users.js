@@ -44,4 +44,12 @@
 
   })
 
+  $('#session_title').click(function(){
+      console.log("hooray")
+      $('#session_info').slideToggle( "slow", function() {
+
+       });
+
+  })
+
 })
