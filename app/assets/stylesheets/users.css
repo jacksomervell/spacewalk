@@ -18,15 +18,18 @@
   display: block;
   width: 1000px;
   position: absolute;
+  top: 127px;
 }
 
 #redline {
   display: inline-block;
-  border: 1px solid red;
+  border: 0px solid red;
   width:780px;
   height: 600px;
   position: absolute;
   left: 220px;
+  overflow: hidden;
+  width: 0px;
 
 }
 
@@ -36,9 +39,57 @@
   height: 5px;
   transform: rotate(152deg) translateY(-210px) translateX(170px);
   width: 900px;
+  position: absolute;
+  border: none;
 }
+
+#info_container {
+  max-height: 127px;
+  min-height: 127px;
+  min-width: 9000px;
+  overflow: scroll;
+  visibility: block;
+}
+
+#how_far {
+  position: absolute;
+  left: 400px;
+  top: 250px;
+  visibility: hidden;
+}
+
+#to_go {
+  position: absolute;
+  left: 400px;
+  top: 350px;
+  visibility: hidden;
+}
+
+#calculate_moon {
+  background: transparent;
+  border: none;
+  font-size: 30px
+}
+
+#calculate_moon:hover {
+  background: transparent;
+  border: none;
+  color: red;
+}
+
+#calculate_moon:active {
+  background: transparent;
+  border: none;
+
+}
+
+#calculate_moon:focus {outline:0;}
+
+
 
 body {
   background-image: url( http://cdn3.howtogeek.com/wp-content/uploads/2011/04/starryskieswallpapercollection14.jpg);
-  color: white;s
+  color: white;
+  font-family: 'remagg_cz';
+
 }

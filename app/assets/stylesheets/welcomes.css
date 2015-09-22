@@ -1,5 +1,6 @@
 body {
   height: 100%;
+  font-family: 'remagg_cz';
 }
 
 h1 {
@@ -8,11 +9,12 @@ h1 {
 
 #welcome-index {
   width: 100%;
-  height: 700px;
+  height: 900px;
   color: white;
   /*background-image: url(http://www.mrwallpaper.com/wallpapers/Moon-Earth-View.jpg);*/
   background-image: url(http://img06.deviantart.net/306a/i/2009/184/2/f/the_moon___wallpaper_by_cycoze.jpg);
   background-size: cover;
+  font-family: 'remagg_cz';
 }
 
 
@@ -31,6 +33,7 @@ h1 {
   background: red;
   border: none;
   color: white;
+  font-family: 'remagg_cz';
   transition: .2s;
   &:before,
   &:after {
@@ -42,7 +45,7 @@ h1 {
     padding-bottom: inherit;
     width: 2.8em;
     content: "\00a0";
-    font-family: 'FontAwesome', sans-serif;
+    font-family: 'remagg_cz';
     font-size: 1.2em;
     text-align: center;
   
