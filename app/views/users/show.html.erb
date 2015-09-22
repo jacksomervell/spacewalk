@@ -5,7 +5,6 @@
 <div id="user_header">
     <h1 id = "usernameshow"><%= @user.name %></h1>
 
-    <br>
 
     <%= link_to 'Edit | ', edit_user_path(@user) %>
     <%= link_to 'Delete | ', @user, method: :delete, data: { confirm: "Are you sure?" } %>
@@ -15,46 +14,48 @@
 </div>
 
 <div id= "glance_container">
-  <h2> At a glance </h2>
-  Joined: <%= time_ago_in_words(@user.created_at) %> ago
-  <p>Age: <%= @user.age %></p>
-  <p>Location: <%= @user.location %></p>
+  <h2 id="glance_title" href:"#"> At a glance </h2><div class="arrow-down"></div>
+
+  <div id= "glance_info">
+    Joined: <%= time_ago_in_words(@user.created_at) %> ago
+    <p><font-color = "white">Age:</font> <%= @user.age %></p>
+    <p>Location: <%= @user.location %></p>
+
+    <!-- Total distance -->
+      <% sum = 0 %>
+      <% @user.sessions.each do |session| %>
+      <%  sum = sum + session.distance.to_i %>
+      <% end %>
+    <p> Total distance: <%= sum %>km</p>
+
+    <!-- Average distance -->
+    <% all_distance = @user.sessions.pluck(:distance) %>
+    <% all_distance.map! { |s| s.to_i} %>
+    <% all_distance %>
 
 
+    <p> Average distance per session: <%= all_distance.inject{ |sum, el| sum + el }.to_f / all_distance.size %>km  </p>
 
-
-  <!-- Total distance -->
-    <% sum = 0 %>
-    <% @user.sessions.each do |session| %>
-    <%  sum = sum + session.distance.to_i %>
-    <% end %>
-  <p> Total distance: <%= sum %>km</p>
-
-  <!-- Average distance -->
-  <% all_distance = @user.sessions.pluck(:distance) %>
-  <% all_distance.map! { |s| s.to_i} %>
-  <% all_distance %>
-
-
-  <p> Average distance per session: <%= all_distance.inject{ |sum, el| sum + el }.to_f / all_distance.size %>km  </p>
-
-
-  <!-- 
-  Favourite place distance -->
-    
-  <% arr = @user.sessions.pluck(:location) %>
-  <% freq = arr.inject(Hash.new(0)) { |h,v| h[v] += 1; h } %>
-  <p> Favourite place to exercise: <%= arr.max_by { |v| freq[v] } %> </p>
-
+    <!-- 
+    Favourite place distance -->
+      
+    <% arr = @user.sessions.pluck(:location) %>
+    <% freq = arr.inject(Hash.new(0)) { |h,v| h[v] += 1; h } %>
+    <p> Favourite place to exercise: <%= arr.max_by { |v| freq[v] } %> </p>
+  </div>
 </div>
 
-<h2> Session history </h2>
+<div id= "session_container">
 
-<% @user.sessions.each do |session|%>
-  <p><%= session.activity %></p>
-  <p><%= session.distance %></p>
-  <p><%= session.location %></p>
-  <%= link_to 'Edit', edit_user_session_path(session.user, session)%>
-  <%= link_to 'Delete', [session.user, session], method: :delete, data: { confirm: "Are you sure?" } %>
-  <br>
-<% end %>
+    <h2 id="glance_title" href:"#"> Session history </h2><div class="arrow-down"></div>
+
+    <% @user.sessions.each do |session|%>
+      <p><%= session.activity %></p>
+      <p><%= session.distance %></p>
+      <p><%= session.location %></p>
+      <%= link_to 'Edit', edit_user_session_path(session.user, session)%>
+      <%= link_to 'Delete', [session.user, session], method: :delete, data: { confirm: "Are you sure?" } %>
+      <br>
+    <% end %>
+
+</div>

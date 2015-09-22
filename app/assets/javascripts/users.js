@@ -36,10 +36,12 @@
                         });
    })
 
+  $('#glance_title').click(function(){
+      console.log("hooray")
+      $('#glance_info').slideToggle( "slow", function() {
 
-  // CalcMoon.click(function(){
-    
-  //     // Animation complete.
-  // })
+       });
+
+  })
 
 })
