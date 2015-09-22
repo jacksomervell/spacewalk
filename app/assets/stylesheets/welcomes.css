@@ -17,38 +17,44 @@ h1 {
   font-family: 'remagg_cz';
 }
 
+.existing-button {
+  position: absolute;
+  display: inline-block;
+  left: 700px;
+  top: 300px;
+}
 
+.new-button{
+  position: absolute;
+  display: inline-block;
+  left: 700px;
+  top: 400px;
+}
 
 .existing-button, 
-.new-button
-
-{
-
-  display: inline-block;
-  font-family: "Montserrat", "Trebuchet MS", Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  position: relative;
-  padding: .8em 1.4em;
-  padding-right: 4.7em;
-  background: red;
+.new-button{
+  background: transparent;
   border: none;
-  color: white;
-  font-family: 'remagg_cz';
-  transition: .2s;
-  &:before,
-  &:after {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    padding-top: inherit;
-    padding-bottom: inherit;
-    width: 2.8em;
-    content: "\00a0";
-    font-family: 'remagg_cz';
-    font-size: 1.2em;
-    text-align: center;
-  
+  font-size: 30px
 }
+
+.existing-button, 
+.new-button {
+  background: transparent;
+  border: none;
+  color: red;
+}
+
+.existing-button, 
+.new-button {
+  background: transparent;
+  border: none;
+
+}
+
+.existing-button, 
+.new-button {outline:0;}
+
+
 
 

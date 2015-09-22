@@ -54,15 +54,29 @@
 #how_far {
   position: absolute;
   left: 400px;
-  top: 250px;
+  top: 150px;
   visibility: hidden;
 }
 
 #to_go {
   position: absolute;
   left: 400px;
-  top: 350px;
+  top: 250px;
   visibility: hidden;
+}
+
+#back_to_user {
+  position: absolute;
+  left: 600px;
+  top: 450px;
+  color: white;
+  text-decoration: none;
+  visibility: hidden;
+}
+
+#back_to_user:link {
+  text-decoration: none;
+  color: white;
 }
 
 #calculate_moon {

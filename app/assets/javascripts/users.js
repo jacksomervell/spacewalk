@@ -26,6 +26,13 @@
                               $('#to_go').css('visibility', 'visible');
                           },
                           2500);
+
+                        setTimeout(
+                          function() {
+                              $('#back_to_user').css('visibility', 'visible');
+                          },
+                          3500);
+
                         });
    })
 

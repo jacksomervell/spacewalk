@@ -58,8 +58,8 @@ class UsersController < ApplicationController
     @user.sessions.each do |session|
     @sum = @sum + session.distance.to_i
     end 
-
     gon.sum = @sum
+    
   end 
 
   private

@@ -1,5 +1,6 @@
  <%= Gon::Base.render_data %>
 
+
 <div id= "info_container">
   <h1 id= "user_name"> <%= @user.name%> </h1>
   <button id ="calculate_moon"> Calculate progress</button>
@@ -7,12 +8,14 @@
 
 <div id = "planet_container">
 
-    <h1 id="how_far"><%= @sum %> / 384,400 km</h1>
-    <h2 id="to_go"> Only <%= 384400 - @sum%>km to go! </h2>
     
     <div id = "redline">
     <hr id="thelineitself">
     </div>
+
+    <h2 id="how_far"><%= @sum %> / 384,400 km (<%= ((@sum/384400.0)*100).round(2)%>%)</h2>
+    <h1 id="to_go"> Only <%= 384400 - @sum%>km to go! </h1>
+    <h2 id="back_to_user"><%= link_to '>Back to your profile', user_path(@user) %></h2>
 
     <img id = "earthpic" src="http://orig10.deviantart.net/ae54/f/2010/326/5/1/51fe8413c296378bbc0563daf917459b-d33emut.png">
 
