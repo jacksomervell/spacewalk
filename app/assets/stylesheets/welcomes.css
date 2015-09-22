@@ -28,7 +28,7 @@ h1 {
   position: absolute;
   display: inline-block;
   left: 700px;
-  top: 400px;
+  top: 350px;
 }
 
 .existing-button, 
@@ -38,23 +38,32 @@ h1 {
   font-size: 30px
 }
 
-.existing-button, 
-.new-button {
+
+.existing-button:hover , 
+.new-button:hover {
   background: transparent;
   border: none;
   color: red;
 }
 
-.existing-button, 
-.new-button {
+.existing-button:active, 
+.new-button:active {
   background: transparent;
   border: none;
 
 }
 
-.existing-button, 
-.new-button {outline:0;}
+.existing-button:focus, 
+.new-button:focus {outline:0;}
 
+a:link { text-decoration: none;
+        color: white;
+     }  
+
+a:visited { text-decoration: none;
+color: white; }  
+
+a:hover   { color: red } 
 
 
 
