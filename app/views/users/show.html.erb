@@ -8,7 +8,7 @@
 
     <%= link_to 'Edit | ', edit_user_path(@user) %>
     <%= link_to 'Delete | ', @user, method: :delete, data: { confirm: "Are you sure?" } %>
-    <%= link_to 'Log a new run | ', new_user_session_path(@user) %>
+    <%= link_to 'New session | ', new_user_session_path(@user) %>
     <%= link_to 'Moon progress ', moon_path(@user) %>
 
 </div>
@@ -42,6 +42,9 @@
     <% arr = @user.sessions.pluck(:location) %>
     <% freq = arr.inject(Hash.new(0)) { |h,v| h[v] += 1; h } %>
     <p> Favourite place to exercise: <%= arr.max_by { |v| freq[v] } %> </p>
+
+    <p> Total sessions logged: <%=@user.sessions.count%> <p>
+
   </div>
 </div>
 
@@ -51,10 +54,11 @@
 
     <div id= "session_info">
       <% @user.sessions.each do |session|%>
-        <p><%= session.activity %></p>
-        <p><%= session.distance %></p>
-        <p><%= session.location %></p>
-        <%= link_to 'Edit', edit_user_session_path(session.user, session)%>
+        <p>Activity: <%= session.activity %></p>
+        <p>Distance: <%= session.distance %></p>
+        <p>Location: <%= session.location %></p>
+        <p>Date: 31/05/1987</p>
+        <%= link_to 'Edit | ', edit_user_session_path(session.user, session)%>
         <%= link_to 'Delete', [session.user, session], method: :delete, data: { confirm: "Are you sure?" } %>
         <br>
       <% end %>
