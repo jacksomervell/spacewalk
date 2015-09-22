@@ -82,7 +82,9 @@
 #calculate_moon {
   background: transparent;
   border: none;
-  font-size: 30px
+  font-size: 20px;
+  margin-left: 60px;
+  margin-top: 8px;
 }
 
 #calculate_moon:hover {
@@ -194,7 +196,7 @@ border-radius: 5px; }
 
  .form_container {
         display: inline-block;
-        margin-left: 40px;
+        margin-left: 70px;
         width: 300px;
         clear: both;
     }
@@ -203,7 +205,33 @@ border-radius: 5px; }
         clear: both;
     }
 
-.page_title {
-  margin-left: 50px   
+.moon_page_title {
+  margin-left: 50px;   
   font-size: 50px;
+}
+
+.page_title {
+  margin-left: 50px;   
+  font-size: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.not_here {
+  color: blue;
+  display: inline-block;
+}
+
+.search_users {
+  margin-left: 70px;
+  margin-top: 20px;
+}
+
+.profile_select{
+  display: inline-block;
+  margin-left: 70px;
+}
+
+.users_select{
+  margin-left: 70px;
 }

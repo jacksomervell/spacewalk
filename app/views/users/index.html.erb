@@ -1,17 +1,22 @@
 <h1> <%=link_to 'moonwalk', welcomes_path, class: "little_welcomer" %> </h1>
-<h1> Existing user </h1>
 
-<%= form_tag(users_path, :method => "get", id: "search-form", class: "little_welcomer") do %>
-  <%= text_field_tag :search, params[:search], placeholder: "Search runners" %>
+<h1 class = "page_title"> Existing user </h1>
+
+<div class = "search_users">
+<%= form_tag(users_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search users" %>
   <%= submit_tag "Search" %>
 
 <% end %>
 
-<h2>Select your profile from below. <%=link_to "Not here?", new_user_path %> </h2>
+</div>
 
+<h2 class="profile_select">Select your profile from below.</h2> <h2 class = "not_here"> <%=link_to "Not here?", new_user_path %></h2>
 
+<div class = "users_select">
 <% if @users.present? %>
   <%= render "user" %>
   <% else %>
   <p>There are no users containing the term(s) <%= params[:search] %>.</p>
 <% end %>
+<div>
