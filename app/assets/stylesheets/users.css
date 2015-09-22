@@ -35,7 +35,7 @@
 
 #thelineitself {
   color: #f00;
-  background-color: #f00;
+  background-color: white;
   height: 5px;
   transform: rotate(152deg) translateY(-210px) translateX(170px);
   width: 900px;
@@ -107,3 +107,33 @@ body {
   font-family: 'remagg_cz';
 
 }
+
+#user_header {
+  display: block;
+  margin-left: 50px;
+  font-size: 30px;
+}
+
+#usernameshow {
+  font-size: 50px
+}
+
+#glance_container {
+  display: inline-block;
+  margin-left: 50px;
+}
+
+.welcomer {
+    background: url('http://st.depositphotos.com/1017411/1565/i/950/depositphotos_15659203-Seamless-Texture-surface-of-the-moon.jpg');
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 50px;
+}
+
+.little_welcomer {
+  background: url('http://st.depositphotos.com/1017411/1565/i/950/depositphotos_15659203-Seamless-Texture-surface-of-the-moon.jpg');
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+}
+
