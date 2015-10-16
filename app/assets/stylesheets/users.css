@@ -37,7 +37,7 @@
   color: #f00;
   background-color: white;
   height: 5px;
-  transform: rotate(152deg) translateY(-210px) translateX(170px);
+  /*transform: rotate(152deg) translateY(-210px) translateX(170px);*/
   width: 900px;
   position: absolute;
   border: none;
