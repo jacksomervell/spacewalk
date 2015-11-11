@@ -1,5 +1,7 @@
 == README
 
+UPDATE: This app is now live at https://evening-meadow-8658.herokuapp.com/ - enjoy!
+
 Overview: This is an app that allows users to track their walking/running progress throughout their life, and give them interesting facts about how far they've gone to keep them  motivated to do so. The overarching metric shows them how far they've gone to the moon based on their entire walking/running history.
 
 Ruby version: 4.
